@@ -20,7 +20,6 @@ For this project, I was interested in using project data made available from uda
 2. 
 
 
-The full set of data used for this project is available on kaggle and is made available for public use.
 
 
 ## File Descriptions <a name="files"></a>
