@@ -2,37 +2,53 @@
 
 ### Table of Contents
 
-1. [Installation](#installation)
-2. [Project Motivation](#motivation)
-3. [File Descriptions](#files)
-4. [Results](#results)
+
+1. [Project Motivation](#motivation)
+2. [File Descriptions](#files)
+3. [Instructions](#instructions)
+4. [Requirements](#requirements)
 5. [Licensing, Authors, and Acknowledgements](#licensing)
 
-## Installation <a name="installation"></a>
-
-Work in progress
 
 ## Project Motivation<a name="motivation"></a>
 
-For this project, I was interested in using project data made available from udacity:
+This project aims to build a web-app to classify the messages that have been collated from different sources including Social Media, News and other outlets of information. The data for this project comes from Appen-FigureEight Inc and it contains the various messages that had been received during natural disasters between 2010 and 2014. 
 
-1. 
-2. 
-
+The web-app that is built in this project would attempt to classify the incoming messages. This would help disaster relief agencies in determining whether the incoming message relates to disaster-relief request and what specific nature of the message received is so that specific help to that requirement is dispatched. We have 36 categories of labels in total and none of the messages are overlapping which would make this problem a multi-classification problem for the machine learning models employed in this project.
 
 
 
 ## File Descriptions <a name="files"></a>
 
-Work in progress
+The description of the files used in this project are:
+
+1. process_data.py - this file takes the messages collated from different sources, clean them, aggregates them and saves them in an SQL table to help implement ML models
+2. train_classifier.py - this file takes the SQL table data and implements machines learning models for classification of the data and saves the result in a pickle file
+3. run.py - this file contains the Flask back-end for the web-app that would take user input and attempt to classify the message recieved
+4. ETL pipeline preparation.py - this file shows the development phase of process_data.py
+5. ML pipeline preparation.py - this file shows the development stages for the train_classifier.py
 
 
-## Results<a name="results"></a>
+## Instructions<a name="instructions"></a>
 
-Work in progress
+1. Run the following commands in the project's root directory to run this project
+   ● To run the ETL pipeline that cleans data and prepares it in the required SQL format : python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/disaster_response.db
+   ● To run the ML pipeline that would classify the labels using Machine Learning models and saves the results in pickle file : python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
+
+2. Run the following command in the app's directory to run your web app: `python run.py`
+
+3. Go to http://0.0.0.0:3001/ to see the results of the project and type in some messages to see the relationships
 
 
+## Requirements<a name ="requirements"></a>
+
+Following libraries would be required to run the project
+
+● NLTK for natural language processing
+● Pandas, Numpy, Scikit-Learn for data manipulation and machine learning
+● Plotly for data visualization
+● Flask for back-end web-app
 
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
 
-work in progress
+Incredibly grateful to the team at Udacity as well as FigureEight for providing Data required for the completition of this project
