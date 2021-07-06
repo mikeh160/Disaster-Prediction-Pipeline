@@ -32,8 +32,10 @@ The description of the files used in this project are:
 ## Instructions<a name="instructions"></a>
 
 1. Run the following commands in the project's root directory to run this project
+
    ● To run the ETL pipeline that cleans data and prepares it in the required SQL format : python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/disaster_response.db
-   ● To run the ML pipeline that would classify the labels using Machine Learning models and saves the results in pickle file : python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
+   
+   ● To run the ML pipeline that would classify the labels using Machine Learning models and saves the results in pickle file : python models/train_classifier.py data/disaster_response.db models/classifier.pkl
 
 2. Run the following command in the app's directory to run your web app: `python run.py`
 
@@ -45,8 +47,11 @@ The description of the files used in this project are:
 Following libraries would be required to run the project
 
 ● NLTK for natural language processing
+
 ● Pandas, Numpy, Scikit-Learn for data manipulation and machine learning
+
 ● Plotly for data visualization
+
 ● Flask for back-end web-app
 
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
