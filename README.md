@@ -1,4 +1,4 @@
-# Disaster-pipeline-project
+# Disaster-Response-pipeline-project
 
 ### Table of Contents
 
