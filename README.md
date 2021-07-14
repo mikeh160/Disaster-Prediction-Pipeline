@@ -41,9 +41,9 @@ The description of the files used in this project are:
 3. Go to http://0.0.0.0:3001/ to see the results of the project and type in some messages to see the relationships
 
 4.The graphical output of the project on the webpage is represented in a screenshot below 
-
-![image](https://user-images.githubusercontent.com/27803552/125647224-a9d5a0ff-4556-41ab-b2c8-f411607e410e.png)
-
+<p align = "center">
+   ![image](https://user-images.githubusercontent.com/27803552/125647224-a9d5a0ff-4556-41ab-b2c8-f411607e410e.png)
+</p>
 
 
 ## Requirements<a name ="requirements"></a>
