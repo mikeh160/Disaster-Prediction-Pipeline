@@ -25,14 +25,14 @@ import pickle
 
 def load_data(database_filepath):
 
-'''
-Takes the SQL table and converts the result into a df. Furthermore, breaksdown the data into input data(X) and target data(y)
-
-    *inputs : 
+    '''
+    Takes the SQL table and converts the result into a df. Also breaks the data into Training (X) & Target Varaible(Y)
+    
+        *inputs:
             database_filepath
-    *returns: 
+        *returns:
             Input_data(X), target_data(y) and column_names of df(colnames)
-'''
+    '''
     
     #engine = create_engine('sqlite:///../data/disaster_response.db')
     engine = create_engine('sqlite:///{}'.format(database_filepath))
@@ -47,14 +47,14 @@ Takes the SQL table and converts the result into a df. Furthermore, breaksdown t
 
 def tokenize(text):
 
-'''
-Takes the text data, tokenizes the data into words, removes non-essential words not serving any purpose, evaluates the realtionship to its context and returns the clean tokens
-
-    *inputs : 
+    '''
+    Takes the text data,tokenizes the data into words,removes non-essential words & presents clean tokens
+    
+        *inputs:
             text
-    *returns: 
+        *returns:
             clean tokens
-'''
+    '''
     
     tokens = word_tokenize(text)
     tokens_wihtout_sw = [w for w in tokens if w not in stopwords.words("english") ]
@@ -71,14 +71,14 @@ Takes the text data, tokenizes the data into words, removes non-essential words 
 
 def build_model():
 
-'''
-A pipeline is defined to run consecutive operations in succession inlcuding the multiple classification algorithm, while parameters for choosing ideal model are searched using grid search. The results of the model are saved
-
-    *inputs : 
+    '''
+    A pipeline is defined to run consecutive operations in succession & grid search then finds ideal parameters
+    
+        *inputs:
             None
-    *returns: 
+        *returns:
             Model results (model_pipeline_cv)
-'''
+    '''
     
     pipeline = Pipeline([
         ('text_pipeline', Pipeline([
@@ -100,14 +100,15 @@ A pipeline is defined to run consecutive operations in succession inlcuding the 
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
-'''
-Takes the results of the model and tries to predict the target classification using machine learning algorithms on the test_dataset(X_test). Displays the final results into a confusion matrix
-
-    *inputs : 
+    
+    '''
+    Takes the results of the model and tries to predict the target classification resulting into a final confusion matrix
+    
+        *inputs:
             saved model configuration(model), test input(X_test), training output(Y_test), and category_names of columns
-    *returns: 
+        *returns:
             displays results of confusion matrix
-'''
+    '''
     
     y_pred = model.predict(X_test)
     target_dataframe = pd.DataFrame(y_pred, columns = category_names)
@@ -119,28 +120,30 @@ Takes the results of the model and tries to predict the target classification us
 
 
 def save_model(model, model_filepath):
-'''
-This module saves the configuration of the model so that long running processes of model prediction (in our case almost more than half an hour) do not have to be run again and again
 
-    *inputs : 
+    '''
+    This module saves the configuration of the model so that long running processes of model prediction
+    
+        *inputs:
             model, model_filepath
-    *returns: 
+        *returns:
             saves the results in a pickle file (classifier.pkl)
-'''
+    '''
     
     pickle.dump(model, open(model_filepath, 'wb') )
     #pass
 
 
 def main():
-'''
-Takes the user specified input of database filepath, model filepath and, splits the dataset into training and test dataset and runs all the modules of the main program including building model, training model, evaluating model and then finally saving model
-
-    *inputs : 
+    
+    '''
+    Takes the user specified ifile paths, runs the model and saves the model configuration into a pkl file
+    
+        *inputs:
             user specified database_filepath, model_filepath
-    *returns: 
+        *returns:
             saves model configuration into a pickle file
-'''
+    '''
     
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
