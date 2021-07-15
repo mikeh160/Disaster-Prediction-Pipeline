@@ -51,6 +51,9 @@ def clean_data(df):
     print('No. of rows vs columns are:', df.shape)
     df.drop_duplicates(inplace = True)
     df.groupby(df.columns.tolist(), as_index = False).size().reset_index().rename(columns = {0:"duplicates"})
+    #Removing rows containing the value 2 in related column, since we 're only working with binary assumptions 
+    #here with 0 meaning message is not related and a 1 pointing to a message relating to specific category
+    df = df[df.related != 2]
     #pass
     return df
 
