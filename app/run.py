@@ -56,7 +56,7 @@ def index():
     t_df = t_df.transpose()
     t_df = t_df.reset_index().rename(columns={'index': 'types_of_msgs'})
     #dropping the reduntant column 2 which has an unidentified value 2 for only one keyword : "related"
-    t_df = t_df.drop([2], axis = 1) 
+    #t_df = t_df.drop([2], axis = 1) -> #Already taken care of in process_data.py file line 56
     #arranging in descending order
     sorted_df = t_df.sort_values(by = [1], ascending=False)
     
